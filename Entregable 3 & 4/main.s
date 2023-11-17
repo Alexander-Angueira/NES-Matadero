@@ -252,12 +252,22 @@ ReadP1Start:
   lda $4016
   and #%00000001
   beq ReadP1StartDone
+  lda #$68
+  sta sprite_id
+  lda #$10
+  sta sprite_bytes
+  jsr LoadSprites
 ReadP1StartDone:
 
 ReadP1Select:
   lda $4016
   and #%00000001
   beq ReadP1SelectDone
+  lda #$58
+  sta sprite_id
+  lda #$10
+  sta sprite_bytes
+  jsr LoadSprites
 ReadP1SelectDone:
 
 ReadP1Up:
